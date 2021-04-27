@@ -1,0 +1,15 @@
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms-Fernandez.csprojAssemblyReference.cache
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms_Fernandez.Form1.resources
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms_Fernandez.Properties.Resources.resources
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms-Fernandez.csproj.GenerateResource.cache
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms-Fernandez.csproj.CoreCompileInputs.cache
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\bin\Debug\TPWinforms-Fernandez.exe.config
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\bin\Debug\TPWinforms-Fernandez.exe
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\bin\Debug\TPWinforms-Fernandez.pdb
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\bin\Debug\Dominio.dll
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\bin\Debug\Negocio.dll
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\bin\Debug\Dominio.pdb
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\bin\Debug\Negocio.pdb
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms-Fernandez.csproj.CopyComplete
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms-Fernandez.exe
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms-Fernandez.pdb
