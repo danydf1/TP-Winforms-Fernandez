@@ -56,6 +56,49 @@ namespace Negocio
             }
             
         }
+
+        public void agregar(Producto nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+               string valores = "values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', " +
+                                        " '" + nuevo.UrlImagen + "', " + nuevo.Marca.Id + ", "+ nuevo.Categoria.Id+" , "+nuevo.Precio+")";
+                datos.setearConsulta("insert into Articulos (Codigo, Nombre, Descripcion, ImagenUrl,  IdMarca, IdCategoria, Precio) " + valores);
+
+                datos.ejectutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        /// Recibe un id que se obtiene desde el form se concatena con la consulta se ejecuta y regresa al form
+        public void Eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("delete from ARTICULOS where id = '"+ id +"' ") ;
+                datos.ejectutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 
 }

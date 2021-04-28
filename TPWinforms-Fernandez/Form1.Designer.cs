@@ -44,17 +44,18 @@
             // dgvProductos
             // 
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(12, 44);
+            this.dgvProductos.Location = new System.Drawing.Point(12, 55);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(526, 336);
+            this.dgvProductos.Size = new System.Drawing.Size(662, 336);
             this.dgvProductos.TabIndex = 0;
             this.dgvProductos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProductos_MouseClick);
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(544, 44);
+            this.pictureBox.Location = new System.Drawing.Point(680, 55);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(244, 336);
+            this.pictureBox.Size = new System.Drawing.Size(306, 336);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             // 
@@ -67,7 +68,7 @@
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(986, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,6 +80,7 @@
             this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -97,6 +99,7 @@
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnDetalle
             // 
@@ -111,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(986, 435);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -121,6 +124,7 @@
             this.Controls.Add(this.dgvProductos);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
