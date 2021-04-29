@@ -65,9 +65,17 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-               string valores = "values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', " +
-                                        " '" + nuevo.UrlImagen + "', " + nuevo.Marca.Id + ", "+ nuevo.Categoria.Id+" , "+nuevo.Precio+")";
-                datos.setearConsulta("insert into Articulos (Codigo, Nombre, Descripcion, ImagenUrl,  IdMarca, IdCategoria, Precio) " + valores);
+                datos.setearConsulta("INSERT Into Articulos (Codigo,Nombre,Descripcion,Precio,ImagenUrl,IdMarca,IdCategoria) " +
+                                   "values (@Codigo,@Nombre,@Descripcion,@Precio,@ImagenUrl,@IdMarca,@IdCategoria)");
+
+                datos.agregarParametro("@Codigo", nuevo.Codigo);
+                datos.agregarParametro("@Nombre", nuevo.Nombre);
+                datos.agregarParametro("@Descripcion", nuevo.Descripcion);
+                datos.agregarParametro("@IdMarca", nuevo.Marca.Id);
+                datos.agregarParametro("@IdCategoria", nuevo.Categoria.Id);
+                datos.agregarParametro("@ImagenUrl", nuevo.UrlImagen);
+                datos.agregarParametro("@Precio", nuevo.Precio);
+                
 
                 datos.ejectutarAccion();
 
@@ -75,6 +83,38 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+        public void Modificar(Producto modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE Articulos Set Codigo=@Codigo,Nombre=@Nombre,Descripcion=@Descripcion," +
+                                   "IdMarca=@IdMarca,IdCategoria=@IdCategoria,ImagenUrl=@ImagenUrl,Precio=@Precio Where Id=@Id");
+
+
+                datos.agregarParametro("@Codigo", modificar.Codigo);
+                datos.agregarParametro("@Nombre", modificar.Nombre);
+                datos.agregarParametro("@Descripcion", modificar.Descripcion);
+                datos.agregarParametro("@IdMarca", modificar.Marca.Id);
+                datos.agregarParametro("@IdCategoria", modificar.Categoria.Id);
+                datos.agregarParametro("@ImagenUrl", modificar.UrlImagen);
+                datos.agregarParametro("@Precio", modificar.Precio);
+                datos.agregarParametro("@Id", modificar.Id);
+                datos.ejectutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
             finally
             {

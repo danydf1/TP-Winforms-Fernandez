@@ -73,27 +73,40 @@ namespace TPWinforms_Fernandez
         /// se crea un objeto producto donde se van a cargar todos los campos necesarios y se manda el objeto como parametro 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Producto nuevo = new Producto();
+           
             ProductoNegocio negocio = new ProductoNegocio();
             
             try
             {
-                nuevo.Codigo = txtCodigo.Text;
-                nuevo.Nombre = txtNombre.Text;
-                nuevo.Descripcion = txtDescripcion.Text;
-                nuevo.UrlImagen = txtUrl.Text;
-                nuevo.Precio = decimal.Parse(nmrPrecio.Value.ToString());
+                if (producto == null)
+                    producto = new Producto();
+
+                producto.Codigo = txtCodigo.Text;
+                producto.Nombre = txtNombre.Text;
+                producto.Descripcion = txtDescripcion.Text;
+                producto.UrlImagen = txtUrl.Text;
+                producto.Precio = decimal.Parse(nmrPrecio.Value.ToString());
                 //se selecciona el item, hay casteado en la clase correspondiente porque sino solo lo toma como la clase objeto
-                nuevo.Marca = (Marca) cmbMarca.SelectedItem;
-                nuevo.Categoria = (Categoria)cmbCategoria.SelectedItem;
+                producto.Marca = (Marca) cmbMarca.SelectedItem;
+                producto.Categoria = (Categoria)cmbCategoria.SelectedItem;
 
-                if(Verificar(nuevo))
+                if (producto.Id == 0)
                 {
-                    negocio.agregar(nuevo);
+                    if (Verificar(producto))
+                    {
+                        negocio.agregar(producto);
 
-                    MessageBox.Show("Agregado");
+                        MessageBox.Show("Agregado");
+                        Close();
+                    }
+                }
+                else
+                {
+                    negocio.Modificar(producto);
                     Close();
                 }
+                    
+                
                 
                 
             }

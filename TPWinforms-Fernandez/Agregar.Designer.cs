@@ -188,9 +188,24 @@
             // nmrPrecio
             // 
             this.nmrPrecio.Location = new System.Drawing.Point(175, 129);
+            this.nmrPrecio.Maximum = new decimal(new int[] {
+            5000000,
+            0,
+            0,
+            0});
+            this.nmrPrecio.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nmrPrecio.Name = "nmrPrecio";
             this.nmrPrecio.Size = new System.Drawing.Size(120, 20);
             this.nmrPrecio.TabIndex = 17;
+            this.nmrPrecio.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // FrmAgregar
             // 
