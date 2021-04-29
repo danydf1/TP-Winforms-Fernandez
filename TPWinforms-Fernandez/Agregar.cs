@@ -12,20 +12,48 @@ using Dominio;
 
 namespace TPWinforms_Fernandez
 {
-    public partial class Agregar : Form
+    public partial class FrmAgregar : Form
     {
-        public Agregar()
+        private Producto producto = null;
+        public FrmAgregar()
         {
             InitializeComponent();
         }
+
+        /// Constructor se encarga se mandar el producto ya cargado para su modificacion
+        public FrmAgregar (Producto articulo)
+        {
+            InitializeComponent();
+            producto = articulo; 
+        }
         /// Se cargan los comboBox con la funcion listar de cada clase
+        /// si un producto se crea ya con campos completos los carga en una ventana para modificar
         private void Agregar_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
             cmbMarca.DataSource = marcaNegocio.listar();
+            cmbMarca.ValueMember = "id";
+            cmbMarca.DisplayMember = "descripcion";
+
             cmbCategoria.DataSource = categoriaNegocio.listar();
+            cmbCategoria.ValueMember = "id";
+            cmbCategoria.DisplayMember = "descripcion";
+
+            if (producto != null)
+            {
+                txtCodigo.Text = producto.Codigo;
+                txtNombre.Text = producto.Nombre;
+                txtDescripcion.Text = producto.Descripcion;
+                txtPrecio.Text = producto.Precio.ToString();
+                txtUrl.Text = producto.UrlImagen;
+
+                cmbCategoria.SelectedValue = producto.Categoria.Id;
+                cmbMarca.SelectedValue = producto.Marca.Id;
+
+                Text = "Modificar";
+            }
         }
         /// cierra la ventana con la funcion close
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -13,4 +13,5 @@ D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fe
 D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms-Fernandez.csproj.CopyComplete
 D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms-Fernandez.exe
 D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms-Fernandez.pdb
-D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms_Fernandez.Agregar.resources
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms_Fernandez.FrmAgregar.resources
+D:\utn\cuatri 3\re2-Prog\TPWinforms-Fernandez\TPWinforms-Fernandez\TPWinforms-Fernandez\obj\Debug\TPWinforms_Fernandez.frmDetalle.resources

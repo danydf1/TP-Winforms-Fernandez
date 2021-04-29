@@ -22,7 +22,7 @@ namespace Negocio
             List<Producto> lista = new List<Producto>();
             AccesoDatos Datos = new AccesoDatos();
 
-            Datos.setearConsulta("select A.Id Id,Codigo,Nombre,A.Descripcion Descripcion,ImagenUrl,M.Descripcion Marca,C.Descripcion Categoria,Precio from ARTICULOS A, CATEGORIAS C, Marcas M Where A.IdCategoria = C.Id and A.IdMarca = M.Id");
+            Datos.setearConsulta("select A.Id Id,Codigo,Nombre,A.Descripcion Descripcion,ImagenUrl,M.Descripcion Marca,M.ID IDMarca ,C.Descripcion Categoria,C.ID IDCategoria ,Precio from ARTICULOS A, CATEGORIAS C, Marcas M Where A.IdCategoria = C.Id and A.IdMarca = M.Id");
             Datos.ejecutarLectura();
 
             try
@@ -38,8 +38,9 @@ namespace Negocio
                     aux.UrlImagen = (string)Datos.Lector["ImagenUrl"];
                     aux.Precio = (decimal)Datos.Lector["Precio"];
 
-                    aux.Marca = new Marca((string) Datos.Lector["Marca"]);
-                    aux.Categoria = new Categoria((string)Datos.Lector["Categoria"]);
+                    aux.Marca = new Marca((int)Datos.Lector["IDMarca"],(string) Datos.Lector["Marca"]);
+                    
+                    aux.Categoria = new Categoria((int)Datos.Lector["IDCategoria"],(string)Datos.Lector["Categoria"]);
 
                     lista.Add(aux);
                 }
@@ -57,6 +58,8 @@ namespace Negocio
             
         }
 
+        ///recibe de parametro un obeto de producto ya cargado con los campos completos desde el formulario agregar
+        ///se pasan los valores y se setea la query
         public void agregar(Producto nuevo)
         {
             AccesoDatos datos = new AccesoDatos();

@@ -79,7 +79,7 @@ namespace TPWinforms_Fernandez
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Agregar agregar = new Agregar();
+            FrmAgregar agregar = new FrmAgregar();
 
             agregar.ShowDialog();
             
@@ -107,6 +107,54 @@ namespace TPWinforms_Fernandez
                 Cargar();
             }
 
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Producto producto;
+            producto = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+
+            FrmAgregar Modificar = new FrmAgregar(producto);
+
+            Modificar.ShowDialog();
+            Cargar();
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Producto> listaFiltrada;
+            try
+            {
+                if (txtFiltro.Text == "")
+                {
+                    listaFiltrada = listaProducto;
+
+                }
+                else
+                {
+                    listaFiltrada = listaProducto.FindAll(k => k.Nombre.ToLower().Contains(txtFiltro.Text.ToLower()) || k.Codigo.ToLower().Contains(txtFiltro.Text.ToLower())
+                                                    || k.Descripcion.ToLower().Contains(txtFiltro.Text.ToLower()) || k.Marca.Descripcion.ToLower().Contains(txtFiltro.Text.ToLower())
+                                                    || k.Categoria.Descripcion.ToLower().Contains(txtFiltro.Text.ToLower()));
+                }
+                dgvProductos.DataSource = listaFiltrada;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            Producto producto;
+            producto = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+
+            frmDetalle detalle = new frmDetalle(producto);
+
+            detalle.ShowDialog();
+
+            Cargar();
         }
     }
 }
