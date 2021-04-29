@@ -30,30 +30,39 @@ namespace TPWinforms_Fernandez
         /// si un producto se crea ya con campos completos los carga en una ventana para modificar
         private void Agregar_Load(object sender, EventArgs e)
         {
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-
-            cmbMarca.DataSource = marcaNegocio.listar();
-            cmbMarca.ValueMember = "id";
-            cmbMarca.DisplayMember = "descripcion";
-
-            cmbCategoria.DataSource = categoriaNegocio.listar();
-            cmbCategoria.ValueMember = "id";
-            cmbCategoria.DisplayMember = "descripcion";
-
-            if (producto != null)
+            try
             {
-                txtCodigo.Text = producto.Codigo;
-                txtNombre.Text = producto.Nombre;
-                txtDescripcion.Text = producto.Descripcion;
-                txtPrecio.Text = producto.Precio.ToString();
-                txtUrl.Text = producto.UrlImagen;
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
-                cmbCategoria.SelectedValue = producto.Categoria.Id;
-                cmbMarca.SelectedValue = producto.Marca.Id;
+                cmbMarca.DataSource = marcaNegocio.listar();
+                cmbMarca.ValueMember = "id";
+                cmbMarca.DisplayMember = "descripcion";
 
-                Text = "Modificar";
+                cmbCategoria.DataSource = categoriaNegocio.listar();
+                cmbCategoria.ValueMember = "id";
+                cmbCategoria.DisplayMember = "descripcion";
+
+                if (producto != null)
+                {
+                    txtCodigo.Text = producto.Codigo;
+                    txtNombre.Text = producto.Nombre;
+                    txtDescripcion.Text = producto.Descripcion;
+                    nmrPrecio.Text = producto.Precio.ToString();
+                    txtUrl.Text = producto.UrlImagen;
+
+                    cmbCategoria.SelectedValue = producto.Categoria.Id;
+                    cmbMarca.SelectedValue = producto.Marca.Id;
+
+                    Text = "Modificar";
+                }
             }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
         /// cierra la ventana con la funcion close
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -66,21 +75,27 @@ namespace TPWinforms_Fernandez
         {
             Producto nuevo = new Producto();
             ProductoNegocio negocio = new ProductoNegocio();
+            
             try
             {
                 nuevo.Codigo = txtCodigo.Text;
                 nuevo.Nombre = txtNombre.Text;
                 nuevo.Descripcion = txtDescripcion.Text;
                 nuevo.UrlImagen = txtUrl.Text;
-                nuevo.Precio = decimal.Parse(txtPrecio.Text);
+                nuevo.Precio = decimal.Parse(nmrPrecio.Value.ToString());
                 //se selecciona el item, hay casteado en la clase correspondiente porque sino solo lo toma como la clase objeto
                 nuevo.Marca = (Marca) cmbMarca.SelectedItem;
                 nuevo.Categoria = (Categoria)cmbCategoria.SelectedItem;
 
-                negocio.agregar(nuevo);
+                if(Verificar(nuevo))
+                {
+                    negocio.agregar(nuevo);
 
-                MessageBox.Show("Agregado");
-                Close();
+                    MessageBox.Show("Agregado");
+                    Close();
+                }
+                
+                
             }
             catch (Exception ex)
             {
@@ -89,10 +104,48 @@ namespace TPWinforms_Fernandez
             
         }
 
-        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        private bool Verificar(Producto producto)
         {
-            if ((e.KeyChar < 48 || e.KeyChar > 59) && e.KeyChar != 8)
-                e.Handled = true;
+            if (producto.Codigo == "")
+            {
+                txtCodigo.BackColor = Color.Red;
+                MessageBox.Show("Ingresar Codigo");
+                return false;
+            }
+            else
+            {
+                txtCodigo.BackColor = System.Drawing.SystemColors.Control;
+            } 
+            if (producto.Nombre == "")
+            {
+                txtNombre.BackColor = Color.Red;
+                MessageBox.Show("Ingresar Nombre");
+                return false;
+            }
+            else
+            {
+                txtNombre.BackColor = System.Drawing.SystemColors.Control;
+                
+            }
+            if (producto.Descripcion == "")
+            {
+                txtDescripcion.BackColor = Color.Red;
+                MessageBox.Show("Ingresar Descripcion");
+                return false;
+            }     
+            else
+                txtDescripcion.BackColor = System.Drawing.SystemColors.Control;
+            if(producto.Precio == 0)
+            {
+                nmrPrecio.BackColor = Color.Red;
+                MessageBox.Show("El precio debe ser mayor a cero");
+                return false;
+            }
+            else
+                nmrPrecio.BackColor = System.Drawing.SystemColors.Control;
+            return true;
+            
         }
+
     }
 }

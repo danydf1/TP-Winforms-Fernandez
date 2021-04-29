@@ -209,6 +209,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lbl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmDetalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Detalle";

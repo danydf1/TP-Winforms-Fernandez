@@ -41,6 +41,7 @@ namespace TPWinforms_Fernandez
 
                 dgvProductos.Columns["Id"].Visible = false;
                 dgvProductos.Columns["UrlImagen"].Visible = false;
+                dgvProductos.Columns["Descripcion"].Visible = false;
 
             }
             catch (Exception)
@@ -54,15 +55,8 @@ namespace TPWinforms_Fernandez
         /// si no puede mostrar la imagen da el error
         private void RecargarImg(string img)
         {
-            try
-            {
-                pictureBox.Load(img);
-            }
-            catch (Exception)
-            {
 
-                MessageBox.Show("No se encontro Imagen");
-            }
+                pictureBox.Load(img);
             
         }
 
@@ -70,9 +64,17 @@ namespace TPWinforms_Fernandez
         /// donde ya se puede obtener el contenido de cualquier propiedad publica con el dataBoundItem
         private void dgvProductos_MouseClick(object sender, MouseEventArgs e)
         {
-
+            try
+            {
                 Producto producto = (Producto)dgvProductos.CurrentRow.DataBoundItem;
                 RecargarImg(producto.UrlImagen);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("No se encontro Imagen");
+            }
+                
         }
 
         /// se despliega el formulario para agregar un nuevo producto
@@ -109,6 +111,7 @@ namespace TPWinforms_Fernandez
 
         }
 
+        /// Se manda como parametro un producto seleccionado al constructor de FrmAgregar al terminar se recarga
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Producto producto;
@@ -119,7 +122,7 @@ namespace TPWinforms_Fernandez
             Modificar.ShowDialog();
             Cargar();
         }
-
+        /// recibe el los cambios del texto y va haciendo la busqueda mientras se escribe
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             List<Producto> listaFiltrada;
@@ -145,6 +148,7 @@ namespace TPWinforms_Fernandez
             }
         }
 
+        /// Se instancia al frmdetalle y se manda el producto seleccionado como parametro
         private void btnDetalle_Click(object sender, EventArgs e)
         {
             Producto producto;
@@ -156,5 +160,7 @@ namespace TPWinforms_Fernandez
 
             Cargar();
         }
+
+       
     }
 }
