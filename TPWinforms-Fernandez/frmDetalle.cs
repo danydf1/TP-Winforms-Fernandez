@@ -30,7 +30,7 @@ namespace TPWinforms_Fernandez
             {
                 lblCodigo.Text = producto.Codigo;
                 lblNombre.Text = producto.Nombre;
-                lblDescripcion.Text = producto.Descripcion;
+                txtDescripcion.Text = producto.Descripcion;
                 lblPrecio.Text = producto.Precio.ToString();
                 lblMarca.Text = producto.Marca.Descripcion;
                 lblCategoria.Text = producto.Categoria.Descripcion;

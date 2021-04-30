@@ -63,21 +63,23 @@ namespace Negocio
         public void agregar(Producto nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
+            
             try
             {
                 datos.setearConsulta("INSERT Into Articulos (Codigo,Nombre,Descripcion,Precio,ImagenUrl,IdMarca,IdCategoria) " +
                                    "values (@Codigo,@Nombre,@Descripcion,@Precio,@ImagenUrl,@IdMarca,@IdCategoria)");
-
-                datos.agregarParametro("@Codigo", nuevo.Codigo);
-                datos.agregarParametro("@Nombre", nuevo.Nombre);
-                datos.agregarParametro("@Descripcion", nuevo.Descripcion);
-                datos.agregarParametro("@IdMarca", nuevo.Marca.Id);
-                datos.agregarParametro("@IdCategoria", nuevo.Categoria.Id);
-                datos.agregarParametro("@ImagenUrl", nuevo.UrlImagen);
-                datos.agregarParametro("@Precio", nuevo.Precio);
                 
+                    datos.agregarParametro("@Codigo", nuevo.Codigo);
+                    datos.agregarParametro("@Nombre", nuevo.Nombre);
+                    datos.agregarParametro("@Descripcion", nuevo.Descripcion);
+                    datos.agregarParametro("@IdMarca", nuevo.Marca.Id);
+                    datos.agregarParametro("@IdCategoria", nuevo.Categoria.Id);
+                    datos.agregarParametro("@ImagenUrl", nuevo.UrlImagen);
+                    datos.agregarParametro("@Precio", nuevo.Precio);
+                    datos.ejectutarAccion();
+              
 
-                datos.ejectutarAccion();
+                
 
             }
             catch (Exception ex)

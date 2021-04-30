@@ -26,7 +26,7 @@ namespace Negocio
         }
         public void agregarParametro(string Nombre, object Valor)
         {
-            comando.Parameters.AddWithValue(Nombre, Valor);
+            comando.Parameters.AddWithValue(Nombre, Valor);         
         }
         public void ejecutarLectura()
         {

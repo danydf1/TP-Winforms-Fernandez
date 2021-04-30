@@ -55,8 +55,16 @@ namespace TPWinforms_Fernandez
         /// si no puede mostrar la imagen da el error
         private void RecargarImg(string img)
         {
-
+            try
+            {
                 pictureBox.Load(img);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No se encontro Imagen");
+            }
+                
             
         }
 
@@ -64,17 +72,10 @@ namespace TPWinforms_Fernandez
         /// donde ya se puede obtener el contenido de cualquier propiedad publica con el dataBoundItem
         private void dgvProductos_MouseClick(object sender, MouseEventArgs e)
         {
-            try
-            {
+
                 Producto producto = (Producto)dgvProductos.CurrentRow.DataBoundItem;
                 RecargarImg(producto.UrlImagen);
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("No se encontro Imagen");
-            }
-                
+ 
         }
 
         /// se despliega el formulario para agregar un nuevo producto
@@ -97,7 +98,7 @@ namespace TPWinforms_Fernandez
             
           
 
-            if (MessageBox.Show("Esta Seguro?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("Esta Seguro que quiere eliminar el producto?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 negocio.Eliminar(producto.Id);
 

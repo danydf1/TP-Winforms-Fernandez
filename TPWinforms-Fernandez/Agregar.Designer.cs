@@ -53,6 +53,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(121, 20);
             this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // lblCodigo
             // 
@@ -122,6 +123,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(121, 43);
             this.txtDescripcion.TabIndex = 6;
+            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             // 
             // txtNombre
             // 
@@ -129,6 +131,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(121, 20);
             this.txtNombre.TabIndex = 4;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblMarca
             // 
@@ -206,6 +209,7 @@
             0,
             0,
             0});
+            this.nmrPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nmrPrecio_KeyPress);
             // 
             // FrmAgregar
             // 

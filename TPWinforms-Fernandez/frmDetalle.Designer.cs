@@ -35,13 +35,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.lblDescripcion = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.pbProducto = new System.Windows.Forms.PictureBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbProducto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,19 +115,6 @@
             this.lblPrecio.TabIndex = 6;
             this.lblPrecio.Text = "label7";
             // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(125, 77);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(55, 29);
-            this.lblDescripcion.TabIndex = 7;
-            this.lblDescripcion.Text = "label8";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -185,23 +172,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbProducto.Location = new System.Drawing.Point(366, 17);
             this.pbProducto.Name = "pbProducto";
-            this.pbProducto.Size = new System.Drawing.Size(270, 232);
+            this.pbProducto.Size = new System.Drawing.Size(242, 251);
             this.pbProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProducto.TabIndex = 13;
             this.pbProducto.TabStop = false;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Enabled = false;
+            this.txtDescripcion.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(130, 80);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(193, 49);
+            this.txtDescripcion.TabIndex = 14;
             // 
             // frmDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(648, 317);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.pbProducto);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.label5);
@@ -230,12 +228,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.PictureBox pbProducto;
+        private System.Windows.Forms.TextBox txtDescripcion;
     }
 }

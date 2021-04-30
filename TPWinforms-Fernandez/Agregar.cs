@@ -80,12 +80,13 @@ namespace TPWinforms_Fernandez
             {
                 if (producto == null)
                     producto = new Producto();
-
+                
                 producto.Codigo = txtCodigo.Text;
                 producto.Nombre = txtNombre.Text;
                 producto.Descripcion = txtDescripcion.Text;
                 producto.UrlImagen = txtUrl.Text;
                 producto.Precio = decimal.Parse(nmrPrecio.Value.ToString());
+               
                 //se selecciona el item, hay casteado en la clase correspondiente porque sino solo lo toma como la clase objeto
                 producto.Marca = (Marca) cmbMarca.SelectedItem;
                 producto.Categoria = (Categoria)cmbCategoria.SelectedItem;
@@ -103,6 +104,8 @@ namespace TPWinforms_Fernandez
                 else
                 {
                     negocio.Modificar(producto);
+
+                    MessageBox.Show("Modificado");
                     Close();
                 }
                     
@@ -119,7 +122,9 @@ namespace TPWinforms_Fernandez
 
         private bool Verificar(Producto producto)
         {
-            if (producto.Codigo == "")
+            
+
+            if (producto.Codigo == "" )
             {
                 txtCodigo.BackColor = Color.Red;
                 MessageBox.Show("Ingresar Codigo");
@@ -127,7 +132,7 @@ namespace TPWinforms_Fernandez
             }
             else
             {
-                txtCodigo.BackColor = System.Drawing.SystemColors.Control;
+                
             } 
             if (producto.Nombre == "")
             {
@@ -135,30 +140,36 @@ namespace TPWinforms_Fernandez
                 MessageBox.Show("Ingresar Nombre");
                 return false;
             }
-            else
-            {
-                txtNombre.BackColor = System.Drawing.SystemColors.Control;
-                
-            }
             if (producto.Descripcion == "")
             {
                 txtDescripcion.BackColor = Color.Red;
                 MessageBox.Show("Ingresar Descripcion");
                 return false;
             }     
-            else
-                txtDescripcion.BackColor = System.Drawing.SystemColors.Control;
-            if(producto.Precio == 0)
-            {
-                nmrPrecio.BackColor = Color.Red;
-                MessageBox.Show("El precio debe ser mayor a cero");
-                return false;
-            }
-            else
-                nmrPrecio.BackColor = System.Drawing.SystemColors.Control;
+                
             return true;
             
         }
 
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtCodigo.BackColor = System.Drawing.SystemColors.Control;
+            
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtNombre.BackColor = System.Drawing.SystemColors.Control;
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtDescripcion.BackColor = System.Drawing.SystemColors.Control;
+        }
+
+        private void nmrPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            nmrPrecio.BackColor = System.Drawing.SystemColors.Control;
+        }
     }
 }
