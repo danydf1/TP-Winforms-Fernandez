@@ -1,0 +1,13 @@
+﻿.cards {
+    margin: auto;
+    padding: 30px;
+}
+
+.card-body {
+    text-align: center;
+    font-size: 30px;
+}
+
+.card-title-detalle{
+    font-size:40px;
+}

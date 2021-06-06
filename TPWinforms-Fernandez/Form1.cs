@@ -59,7 +59,7 @@ namespace TPWinforms_Fernandez
             {
                 pictureBox.Load(img);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
                 MessageBox.Show("No se encontro Imagen");
@@ -123,6 +123,7 @@ namespace TPWinforms_Fernandez
             Modificar.ShowDialog();
             Cargar();
         }
+
         /// recibe el los cambios del texto y va haciendo la busqueda mientras se escribe
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {

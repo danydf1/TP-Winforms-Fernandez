@@ -23,7 +23,7 @@ namespace TPWinforms_Fernandez
             InitializeComponent();
             producto = Articulo;
         }
-
+        
         private void frmDetalle_Load(object sender, EventArgs e)
         {
             if (producto != null)
