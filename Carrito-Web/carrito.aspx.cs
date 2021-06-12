@@ -12,53 +12,55 @@ namespace TP_Carrito_Fernandez
 
     public partial class carrito : System.Web.UI.Page
     {
-        public List<Producto> listaCarrito;
-        public int Cantidad { get; set; }
+        public Carrito listaCarrito = new Carrito();
+        public items item = new items();    
+       
         protected void Page_Load(object sender, EventArgs e)
         {
+          listaCarrito.items = (List<items>)Session["listaCarrito"];
+            
 
-            listaCarrito = (List<Producto>)Session["listaCarrito"];
+            if (listaCarrito.items == null)
+                listaCarrito.items = new List<items>();
 
-            if (listaCarrito == null)
-                listaCarrito = new List<Producto>();
-
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 if (Request.QueryString["id"] != null)
                 {
-                    if(listaCarrito.Find(x => x.Id.ToString() == Request.QueryString["id"]) == null)
+                    if(listaCarrito.items.Find(x => x.item.Id.ToString() == Request.QueryString["id"]) == null)
                     {
                         List<Producto> listaProductos = (List<Producto>)Session["listaProductos"];
-                        listaCarrito.Add(listaProductos.Find(x => x.Id.ToString() == Request.QueryString["id"]));
+                        
+                        item.item = listaProductos.Find(x => x.Id.ToString() == Request.QueryString["id"]);
+                         if( int.Parse(txtCantidad.Text) > 0)
+                            item.cantidad = int.Parse(txtCantidad.Text);
+                        item.subTotal = total( item.cantidad , item.item.Precio);
+                        listaCarrito.items.Add(item);
+                            
                     }
-                }
-                
-                repetidor.DataSource = listaCarrito;
-                repetidor.DataBind();
-                
+                }                
             }
-           
+            Session.Add("listaCarrito", listaCarrito.items);
+       
+        }
+
+        private decimal total(int cantidad, decimal precio)
+        {
+            decimal Total = precio * cantidad;
             
-            Session.Add("listaCarrito", listaCarrito);
-            
+            return Total;
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             var argument = ((Button)sender).CommandArgument;
-            List<Producto> listaCarrito = (List<Producto>)Session["listaCarrito"];
-            Producto elim = listaCarrito.Find(x => x.Id.ToString() == argument);
+            List<items> listaCarrito = (List<items>)Session["listaCarrito"];
+            items elim = listaCarrito.Find(x => x.item.Id.ToString() == argument);
             listaCarrito.Remove(elim);
             Session.Add("listaCarrito", listaCarrito);
-            repetidor.DataSource = null;
-            repetidor.DataSource = listaCarrito;
-            repetidor.DataBind();
+
+           
         }
 
-        protected void txtCantidad_TextChanged(object sender, EventArgs e)
-        {
-            Cantidad = int.Parse( ((TextBox)sender).Text);
-            
-        }
     }
 }
