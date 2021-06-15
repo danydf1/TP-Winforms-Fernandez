@@ -32,18 +32,17 @@ namespace TP_Carrito_Fernandez
                         List<Producto> listaProductos = (List<Producto>)Session["listaProductos"];
                         
                         item.item = listaProductos.Find(x => x.Id.ToString() == Request.QueryString["id"]);
-                         if( int.Parse(txtCantidad.Text) > 0)
-                            item.cantidad = int.Parse(txtCantidad.Text);
+                        item.cantidad = (int)Session["cantidad"];
                         item.subTotal = total( item.cantidad , item.item.Precio);
-                        listaCarrito.items.Add(item);
-                            
+                        listaCarrito.items.Add(item); 
                     }
                 }                
             }
             Session.Add("listaCarrito", listaCarrito.items);
-       
+            
         }
 
+        
         private decimal total(int cantidad, decimal precio)
         {
             decimal Total = precio * cantidad;
@@ -58,9 +57,20 @@ namespace TP_Carrito_Fernandez
             items elim = listaCarrito.Find(x => x.item.Id.ToString() == argument);
             listaCarrito.Remove(elim);
             Session.Add("listaCarrito", listaCarrito);
-
-           
         }
 
+        protected void restar_Click(object sender, EventArgs e)
+        {
+            int cantidad = int.Parse( lblCantidad.Text);
+            cantidad--;
+             lblCantidad.Text = cantidad.ToString() ;
+        }
+
+        protected void aumentar_Click(object sender, EventArgs e)
+        {
+            int cantidad = int.Parse(lblCantidad.Text);
+            cantidad++;
+            lblCantidad.Text = cantidad.ToString();
+        }
     }
 }

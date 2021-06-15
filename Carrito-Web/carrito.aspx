@@ -22,7 +22,7 @@
                 <td><%= item.item.Marca  %></td>
                 <td><%= item.item.Precio %></td>
                 <td>
-                    <asp:TextBox TextMode="Number" AutoPostBack="true" ID="txtCantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" ReadOnly="False" Text="1"></asp:TextBox>
+                    <asp:Button ID="restar" Text="-" OnClick="restar_Click" runat="server"  /> <asp:Label ID="lblCantidad" runat="server" ></asp:Label> <asp:Button ID="aumentar" Text="+" runat="server" OnClick="aumentar_Click" />
                 </td>
                 <td>
                     <asp:Button ID="btnEliminar" CssClass="btn btn-dark" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
